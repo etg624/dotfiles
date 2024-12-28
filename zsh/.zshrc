@@ -26,9 +26,7 @@ export PATH="$PATH:$HOME/.rvm/bin"
 #   eval "$(pyenv init -)"
 # fi
 
-bindkey '^ ' autosuggest-accept
 export CWD=$(pwd)
-export PORTALS_REPOSITORY="$HOME/hometap/eng_portals"
 export PIPX_HOME=$HOME/.local/pipx
 
 alias poortalls="cd ${PORTALS_REPOSITORY}/portals"
