@@ -10,7 +10,6 @@ return {
     },
   },
   keys = {
-    { "<leader>e", false },
-    { "<C-p>", ":Neotree toggle reveal right<CR>" },
+    { "<leader>e", ":Neotree toggle reveal right<CR>" },
   },
 }

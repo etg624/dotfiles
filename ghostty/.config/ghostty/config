@@ -1,0 +1,9 @@
+## Theme
+theme = tokyonight-storm
+
+## Clipboard
+clipboard-read = "allow"
+clipboard-paste-protection = false
+
+
+link-url = true
