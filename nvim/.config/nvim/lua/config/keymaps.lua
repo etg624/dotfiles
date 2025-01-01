@@ -19,7 +19,6 @@ vim.keymap.set("v", "p", '"_dP')
 -- Copy text to " register
 vim.keymap.set("n", "<leader>y", '"+y', { desc = 'Yank into " register' })
 vim.keymap.set("v", "<leader>y", '"+y', { desc = 'Yank into " register' })
-vim.keymap.set("n", "<leader>Y", '"+Y', { desc = 'Yank into " register' })
 
 -- Delete text to " register
 vim.keymap.set("n", "<leader>d", '"_d', { desc = 'Delete into " register' })
@@ -29,7 +28,7 @@ vim.keymap.set("v", "<leader>d", '"_d', { desc = 'Delete into " register' })
 vim.keymap.set(
   "n",
   "<leader>vkm",
-  "<cmd>e ~/.config/nvim/lua/config/keymaps.lua",
+  "<cmd>e ~/.config/nvim/lua/config/keymaps.lua<CR>",
   { desc = "Jump to configuration file" }
 )
 
