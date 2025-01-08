@@ -105,7 +105,6 @@ alias cat="bat"
 _evalcache zoxide init zsh
 _evalcache tmuxifier init -
 _evalcache direnv hook zsh
-source <(fzf --zsh)
 
 # Avoid errors for unmatched globs.
  source ~/powerlevel10k/powerlevel10k.zsh-theme
@@ -117,3 +116,6 @@ _evalcache pyenv init - zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="/Users/evanguirino/git-fuzzy/bin:$PATH"
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+source <(fzf --zsh)
