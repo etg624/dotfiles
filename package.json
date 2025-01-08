@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "globby": "^14.0.2"
+  }
+}

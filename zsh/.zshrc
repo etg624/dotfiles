@@ -4,7 +4,7 @@
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
+export EDITOR='nvim'
 export ZSH="/Users/evanguirino/.oh-my-zsh"
 export XDG_CONFIG_HOME="$HOME/.config"
 # ZSH plugins.
@@ -98,16 +98,6 @@ _fzf_comprun() {
   esac
 }
 
-git_co() {
-    local branch
-    branch=$(git branch --all --format='%(refname:short)' | fzf)
-
-    if [ -n "$branch" ]; then
-        git checkout "$branch"
-    fi
-}
-alias "git co"=git_co
-
 alias cd='z'
 alias ls="eza --icons=always"
 alias cat="bat"
@@ -118,7 +108,7 @@ _evalcache direnv hook zsh
 source <(fzf --zsh)
 
 # Avoid errors for unmatched globs.
-source ~/powerlevel10k/powerlevel10k.zsh-theme
+ source ~/powerlevel10k/powerlevel10k.zsh-theme
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
@@ -126,3 +116,4 @@ _evalcache pyenv init - zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH="/Users/evanguirino/git-fuzzy/bin:$PATH"
