@@ -19,6 +19,8 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 export PATH="$PATH:$HOME/.local/bin"
+export EDITOR="nvim"
+export VISUAL="nvim"
 
 # for poetry
 export PIPX_HOME=$HOME/.local/pipx

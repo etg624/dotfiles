@@ -33,8 +33,4 @@ vim.keymap.set(
 )
 
 -- Move block
-vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move Block Down" })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move Block Up" })
-
-vim.keymap.del("n", "<leader><space>", {})
 vim.keymap.set("n", "<C-p>", LazyVim.pick("files"), { desc = "Find Files (Root Dir)" })
