@@ -17,10 +17,11 @@ plugins=(
   evalcache
 )
 
+
 source $ZSH/oh-my-zsh.sh
 export PATH="$PATH:$HOME/.local/bin"
-export EDITOR="nvim"
 export VISUAL="nvim"
+export EDITOR="nvim"
 
 # for poetry
 export PIPX_HOME=$HOME/.local/pipx
@@ -107,6 +108,7 @@ alias cat="bat"
 _evalcache zoxide init zsh
 _evalcache tmuxifier init -
 _evalcache direnv hook zsh
+_evalcache thefuck --alias f
 source <(fzf --zsh)
 
 # Avoid errors for unmatched globs.
