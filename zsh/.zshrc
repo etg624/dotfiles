@@ -9,6 +9,11 @@ export ZSH="/Users/evanguirino/.oh-my-zsh"
 export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="/opt/homebrew/bin:/bin:/usr/bin:$PATH"
 # ZSH plugins.
+autoload -Uz compinit && compinit
+zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+zstyle ':fzf-tab:complete:cd:*' popup-pad 30 0
+
 plugins=(
   git
   zsh-syntax-highlighting
@@ -16,8 +21,8 @@ plugins=(
   zsh-autosuggestions
   zsh-vi-mode
   evalcache
+  fzf-tab
 )
-
 
 source $ZSH/oh-my-zsh.sh
 export PATH="$PATH:$HOME/.local/bin"
@@ -47,8 +52,6 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # Add custom ZSH functions directory to fpath.
 fpath+=~/.zfunc
-autoload -Uz compinit && compinit
-
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -111,7 +114,8 @@ _evalcache thefuck --alias f
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-_evalcache pyenv init - zsh
+eval "$(pyenv init - zsh)"
+
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
