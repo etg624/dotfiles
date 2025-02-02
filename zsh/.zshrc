@@ -7,6 +7,7 @@ fi
 export EDITOR='nvim'
 export ZSH="/Users/evanguirino/.oh-my-zsh"
 export XDG_CONFIG_HOME="$HOME/.config"
+export PATH="/opt/homebrew/bin:/bin:/usr/bin:$PATH"
 # ZSH plugins.
 plugins=(
   git
@@ -87,20 +88,6 @@ export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh  # fzf initialization
 
 show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
-# Advanced customization of fzf options via _fzf_comprun function
-# - The first argument to the function is the name of the command.
-# - You should make sure to pass the rest of the arguments to fzf.
-_fzf_comprun() {
-  local command=$1
-  shift
-
-  case "$command" in
-    cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
-    export|unset) fzf --preview "eval 'echo \${}'"         "$@" ;;
-    *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
-  esac
-}
-
 alias cd='z'
 alias ls="eza --icons=always"
 alias cat="bat"
@@ -119,4 +106,20 @@ _evalcache pyenv init - zsh
 export PATH="/Users/evanguirino/git-fuzzy/bin:$PATH"
 source ~/powerlevel10k/powerlevel10k.zsh-theme
 
+# Advanced customization of fzf options via _fzf_comprun function
+# - The first argument to the function is the name of the command.
+# - You should make sure to pass the rest of the arguments to fzf.
+
 source <(fzf --zsh)
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+    export|unset) fzf --preview "eval 'echo \${}'"         "$@" ;;
+    *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
+  esac
+}
+
+
