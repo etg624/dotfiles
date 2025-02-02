@@ -8,7 +8,6 @@ return {
     opts.mapping = vim.tbl_extend("force", opts.mapping, {
       ["<Tab>"] = cmp.mapping(function(fallback)
         local copilot = require("copilot.suggestion")
-
         if copilot.is_visible() then
           copilot.accept()
         elseif cmp.visible() then

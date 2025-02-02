@@ -31,6 +31,7 @@ vim.keymap.set(
   "<cmd>e ~/.config/nvim/lua/config/keymaps.lua<CR>",
   { desc = "Jump to configuration file" }
 )
+vim.keymap.set("n", "gn", ":Neogit kind=floating<CR>", { desc = "Open Neogit" })
 
 -- Move block
 vim.keymap.set("n", "<C-p>", LazyVim.pick("files"), { desc = "Find Files (Root Dir)" })
