@@ -2,7 +2,7 @@ return {
 
   {
     "akinsho/git-conflict.nvim",
-    version = "*",
+    version = "v2.1.0",
     config = true,
   },
   {
@@ -28,7 +28,28 @@ return {
       "sindrets/diffview.nvim", -- optional - Diff integration
       "ibhagwan/fzf-lua", -- optional
     },
+    opts = function(_, opts)
+      require("neogit").setup(vim.tbl_deep_extend("force", opts, { commit_editor = { kind = "floating" } }))
+    end,
     config = true,
+    keys = {
+      {
+        "<leader>gn",
+        "<Cmd>Neogit kind=floating<CR>",
+        desc = "Open Neogit",
+      },
+    },
+  },
+
+  {
+    "folke/snacks.nvim",
+    opts = {
+      gitbrowse = {
+        opts = {
+          what = "commit",
+        },
+      },
+    },
   },
 
   {
@@ -41,5 +62,17 @@ return {
       date_format = "%m-%d-%Y %H:%M:%S", -- template for the date, check Date format section for more options
       virtual_text_column = 1, -- virtual text start column, check Start virtual text at column section for more options
     },
+    config = function(_, opts)
+      require("gitblame").setup(opts)
+
+      -- Keymap for opening commit URL only if blame is active
+      vim.keymap.set("n", "<leader>go", function()
+        if require("gitblame").is_blame_text_available() then
+          vim.cmd("GitBlameOpenCommitURL")
+        else
+          vim.notify("Git blame is not active!", vim.log.levels.WARN)
+        end
+      end, { desc = "Open commit URL (if blame is active)" })
+    end,
   },
 }

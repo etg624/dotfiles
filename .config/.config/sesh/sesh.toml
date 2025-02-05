@@ -1,0 +1,11 @@
+[[session]]
+name = "nvim config"
+path = "~/dotfiles/.config/.config/nvim"
+startup_command = "nvim"
+preview_command = "bat --color=always ~/dotfiles/.config/.config/nvim"
+
+[[session]]
+name = "finder"
+path = "~/"
+startup_command = "y"
+preview_command = "ls"

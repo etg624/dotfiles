@@ -2,9 +2,8 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-vim.keymap.set("i", "jj", "<Esc>", { desc = "Esc" })
 -- Select all
-vim.keymap.set("n", "==", "gg<S-v>G")
+vim.keymap.set("n", "==", "gg0<S-v>G")
 
 -- Keep window centered when going up/down
 vim.keymap.set("n", "J", "mzJ`z")
@@ -33,5 +32,4 @@ vim.keymap.set(
 )
 vim.keymap.set("n", "gn", ":Neogit kind=floating<CR>", { desc = "Open Neogit" })
 
--- Move block
 vim.keymap.set("n", "<C-p>", LazyVim.pick("files"), { desc = "Find Files (Root Dir)" })
