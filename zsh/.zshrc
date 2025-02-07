@@ -27,19 +27,9 @@ plugins=(
 source $ZSH/oh-my-zsh.sh
 export PATH="$PATH:$HOME/.local/bin"
 
-if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
-    alias nvim=nvr -cc split --remote-wait +'set bufhidden=wipe'
-fi
 
-if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
-    export VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
-    export EDITOR="nvr -cc split --remote-wait +'set bufhidden=wipe'"
-else
-    export VISUAL="nvim"
-    export EDITOR="nvim"
-fi
-
-alias vim='nvim --listen /tmp/nvim-server.pipe'
+export VISUAL="nvim"
+export EDITOR="nvim"
 
 # for poetry
 export PIPX_HOME=$HOME/.local/pipx
