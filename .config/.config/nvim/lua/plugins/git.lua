@@ -35,8 +35,13 @@ return {
     keys = {
       {
         "<leader>gn",
-        "<Cmd>Neogit kind=floating<CR>",
+        ":Neogit kind=floating<CR>",
         desc = "Open Neogit",
+      },
+      {
+        "<leader>gp",
+        ":Neogit pull<CR>",
+        desc = "Neogit pull",
       },
     },
   },
