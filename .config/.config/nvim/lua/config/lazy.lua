@@ -14,6 +14,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- In your init.lua (or an early-loaded config file)
+vim.g.python3_host_prog = "/Users/evanguirino/.pyenv/shims/python"
+
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
