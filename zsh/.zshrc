@@ -87,6 +87,7 @@ reset_password_for() {
     printf 'new password:   \033[1;36m%s\033[0m\n' "$new_pass"
 }
 alias reset-password-for="reset_password_for"
+alias tt="taskwarrior-tui"
 
 export FZF_DEFAULT_OPTS='-m --height 50% --border --layout=reverse'
 export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
