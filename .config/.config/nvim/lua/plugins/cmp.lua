@@ -8,7 +8,13 @@ return {
 
     opts.mapping = vim.tbl_extend("force", opts.mapping, {
       ["<CR>"] = cmp.mapping(function(fallback)
-        fallback()
+        if copilot.is_visible() then
+          fallback()
+        elseif cmp.visible() then
+          cmp.confirm({ select = true })
+        else
+          fallback()
+        end
       end, { "i", "s" }),
 
       ["<Tab>"] = cmp.mapping(function(fallback)
