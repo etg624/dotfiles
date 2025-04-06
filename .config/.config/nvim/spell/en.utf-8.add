@@ -31,7 +31,6 @@ dropzone
 embla
 lazyvim
 neogit
-#t
 heloc
 camunda
 fraudguard
@@ -51,3 +50,4 @@ deno
 composable
 glia
 dataclasses
+supabase

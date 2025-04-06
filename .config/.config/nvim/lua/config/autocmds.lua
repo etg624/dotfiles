@@ -25,3 +25,37 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.cmd("highlight ColorColumn guibg=#414868")
   end,
 })
+
+-- Function to check if Deno LSP (denols) is active in the current buffer
+-- local function is_deno_active(bufnr)
+--   bufnr = bufnr or vim.api.nvim_get_current_buf()
+--   for _, client in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
+--     if client.name == "denols" then
+--       return true
+--     end
+--   end
+--   return false
+-- end
+--
+-- -- Function to stop unwanted LSPs (vtsls, eslint) if denols is active
+-- local function disable_conflicting_lsps()
+--   local bufnr = vim.api.nvim_get_current_buf()
+--   if is_deno_active(bufnr) then
+--     for _, client in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
+--       if client.name == "vtsls" then
+--         vim.lsp.stop_client(client.id)
+--         print("Stopped " .. client.name .. " because denols is active")
+--       end
+--     end
+--   end
+-- end
+--
+-- -- Automatically run this function when an LSP attaches
+-- vim.api.nvim_create_autocmd("LspAttach", {
+--   callback = function(args)
+--     local client = vim.lsp.get_client_by_id(args.data.client_id)
+--     if client and client.name == "denols" then
+--       disable_conflicting_lsps()
+--     end
+--   end,
+-- })
