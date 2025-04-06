@@ -1,5 +1,5 @@
 return {
-
+  { "sindrets/diffview.nvim", opts = {} },
   {
     "akinsho/git-conflict.nvim",
     version = "v2.1.0",

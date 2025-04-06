@@ -6,7 +6,6 @@ return {
       sources = {
         explorer = {
           hidden = true,
-          ignored = true,
           layout = { layout = { position = "right" } },
         },
         files = { hidden = true, matcher = { frecency = true, history_bonus = true } },
