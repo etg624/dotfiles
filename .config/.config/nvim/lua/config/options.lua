@@ -8,3 +8,5 @@ opt.listchars = {
   tab = "» ",
   space = "·",
 }
+
+vim.api.nvim_set_hl(0, "DiffAdd", { bg = "#8da101" })
