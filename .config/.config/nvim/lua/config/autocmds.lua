@@ -26,36 +26,23 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
--- Function to check if Deno LSP (denols) is active in the current buffer
--- local function is_deno_active(bufnr)
---   bufnr = bufnr or vim.api.nvim_get_current_buf()
---   for _, client in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
---     if client.name == "denols" then
---       return true
---     end
---   end
---   return false
--- end
---
--- -- Function to stop unwanted LSPs (vtsls, eslint) if denols is active
--- local function disable_conflicting_lsps()
---   local bufnr = vim.api.nvim_get_current_buf()
---   if is_deno_active(bufnr) then
---     for _, client in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
---       if client.name == "vtsls" then
---         vim.lsp.stop_client(client.id)
---         print("Stopped " .. client.name .. " because denols is active")
---       end
---     end
---   end
--- end
---
--- -- Automatically run this function when an LSP attaches
--- vim.api.nvim_create_autocmd("LspAttach", {
---   callback = function(args)
---     local client = vim.lsp.get_client_by_id(args.data.client_id)
---     if client and client.name == "denols" then
---       disable_conflicting_lsps()
---     end
---   end,
--- })
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = { "*" },
+})
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "BlinkCmpMenuOpen",
+  callback = function()
+    require("copilot.suggestion").dismiss()
+    vim.b.copilot_suggestion_hidden = true
+  end,
+})
+
+vim.api.nvim_create_autocmd("User", {
+  pattern = "BlinkCmpMenuClose",
+  callback = function()
+    vim.b.copilot_suggestion_hidden = false
+  end,
+})

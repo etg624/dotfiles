@@ -1,5 +1,9 @@
-[plugin]
-deps = [{ use = "Reledia/glow", rev = "5ce76dc" }]
+[[plugin.deps]]
+use = "Reledia/glow"
+rev = "5ce76dc"
+hash = "52e5f5c602962e7cbf874da28f52ba45"
 
-[flavor]
-deps = []
+[[flavor.deps]]
+use = "Chromium-3-Oxide/everforest-medium"
+rev = "3d5f847"
+hash = "9b4190e2447f2c843fee23ea5f068f6"

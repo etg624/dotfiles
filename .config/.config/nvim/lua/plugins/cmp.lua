@@ -4,10 +4,20 @@ return {
     dependencies = { "giuxtaposition/blink-cmp-copilot" },
     opts = {
 
+      completion = {
+        ghost_text = { enabled = false },
+      },
       keymap = {
-        preset = "enter",
-        ["<C-k>"] = { "select_prev", "select_prev" },
+        ["<C-e>"] = { "hide", "fallback" },
+        ["<CR>"] = { "accept", "fallback" },
+        ["<Up>"] = { "select_prev", "fallback" },
+        ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+        ["<C-f>"] = { "scroll_documentation_down", "fallback" },
+        ["<Down>"] = { "select_next", "fallback" },
+        ["<C-k>"] = { "select_prev", "fallback" },
         ["<C-j>"] = { "select_next", "fallback_to_mappings" },
+        
+        ['<C-space>'] = { function(cmp) cmp.hide() end },
         ["<C-p>"] = {},
         ["<C-n>"] = {},
         ["<Tab>"] = {
@@ -20,21 +30,6 @@ return {
           end,
           "snippet_forward",
           "fallback",
-        },
-      },
-      completion = {
-        menu = { direction_priority = { "n", "s" } },
-      },
-      sources = {
-        default = { "copilot" },
-        providers = {
-          copilot = {
-            name = "copilot",
-            module = "blink-cmp-copilot",
-            kind = "Copilot",
-            score_offset = 100,
-            async = true,
-          },
         },
       },
     },
