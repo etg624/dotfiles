@@ -7,4 +7,7 @@ clipboard-paste-protection = false
 
 # link = true
 link-url = true
-font-feature= -calt
+font-feature= -calt, -liga, -dlig
+#font-family=0xProto Nerd Font Propo
+font-family=0xProto Nerd Font Mono
+
