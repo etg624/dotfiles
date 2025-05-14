@@ -1,4 +1,11 @@
 [manager]
-prepend_keymap = [{ on = ["<C-n>"], run = '''
-    shell 'dragon -x -i -T "$1"' --confirm
-''' }]
+prepend_keymap = [{ on = [ "<C-n>" ], run = '''
+    shell 'ripdrag "$@" -x 2>/dev/null &' --confirm
+''' }, 
+	{ on = "q",     run = "quit --no-cwd-file",  desc = "Quit without outputting cwd-file" },
+	{ on = "Q",     run = "quit", desc = "Quit the process" },
+	{ on = "<C-c>", run = "close --no-cwd-file",              desc = "Close the current tab, or quit if it's last" },
+	{ on = "<Enter>",   run = "open --interactive",                        desc = "Open selected files interactively" },
+	{ on = "<S-Enter>", run = "open",          desc = "Open selected files" },
+]
+

@@ -1,11 +1,11 @@
 export EDITOR='nvim'
 export VISUAL=$EDITOR
 export ZSH="/Users/evanguirino/.oh-my-zsh"
-export BROWSER='open'
 export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="/opt/homebrew/bin:/bin:/usr/bin:$PATH"
 export PATH="$HOME/scripts:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
+
 
 export VISUAL="nvim"
 export EDITOR="nvim"
@@ -40,19 +40,6 @@ function y() {
 	rm -f -- "$tmp"
 }
 
-# sesh
-function t() {
-  {
-    exec </dev/tty
-    exec <&1
-    local session
-    session=$(sesh list -t -c | fzf --height 40% --reverse --border-label ' sesh ' --border --prompt '⚡  ')
-    zle reset-prompt > /dev/null 2>&1 || true
-    [[ -z "$session" ]] && return
-    sesh connect $session
-  }
-}
-
 # Custom helper function to reset AWS IAM user passwords.
 reset_password_for() {
     user="$1"
@@ -81,6 +68,12 @@ if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
       "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select-wrapped" ]]; then
     zle -N zle-keymap-select "";
 fi
+
+function zvm_vi_yank() {
+	zvm_yank
+	echo ${CUTBUFFER} | pbcopy
+	zvm_exit_visual_mode
+}
 
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -119,3 +112,4 @@ export MANPATH=/Users/evanguirino/.local/share/man:$MANPATH
 
 # Following line was automatically added by arttime installer
 export MANPATH=/Users/evanguirino/.local/share/man:$MANPATH
+export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
