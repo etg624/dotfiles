@@ -3,12 +3,9 @@
 -- Add any additional keymaps here
 
 -- Select all
-vim.keymap.set("n", "==", "gg0<S-v>G")
+vim.keymap.set("n", "==", ": :%y<CR>", { desc = "Select all" })
 -- Paste without overwriting register
 vim.keymap.set("v", "p", '"_dP')
--- Copy text to " register
-vim.keymap.set("n", "<leader>y", '"+y', { desc = 'Yank into " register' })
-vim.keymap.set("v", "<leader>y", '"+y', { desc = 'Yank into " register' })
 -- Delete text to " register
 vim.keymap.set("n", "<leader>d", '"_d', { desc = 'Delete into " register' })
 vim.keymap.set("v", "<leader>d", '"_d', { desc = 'Delete into " register' })

@@ -10,4 +10,4 @@ opt.listchars = {
 }
 
 vim.api.nvim_set_hl(0, "DiffAdd", { bg = "#8da101" })
-vim.g.lazyvim_python_lsp = "pyright"
+vim.g.lazyvim_python_lsp = "basedpyright"
