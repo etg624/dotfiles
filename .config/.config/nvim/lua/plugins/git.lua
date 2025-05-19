@@ -10,16 +10,23 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim", -- required
       "sindrets/diffview.nvim", -- optional - Diff integration
-      "ibhagwan/fzf-lua", -- optional
+      "folke/snacks.nvim", -- optional
     },
-    opts = function(_, opts)
-      require("neogit").setup(vim.tbl_deep_extend("force", opts, { commit_editor = { kind = "floating" } }))
-    end,
+    opts = {
+      kind = "floating",
+      floating = {
+        relative = "editor",
+        width = 0.9,
+        height = 0.7,
+        style = "minimal",
+        border = "rounded",
+      },
+    },
     config = true,
     keys = {
       {
         "<leader>gn",
-        ":Neogit kind=floating<CR>",
+        ":Neogit<CR>",
         desc = "Open Neogit",
       },
       {
@@ -45,13 +52,13 @@ return {
   },
   {
     "f-person/git-blame.nvim",
+    event = "VeryLazy",
     opts = {
-      -- your configuration comes here
-      -- for example
-      enabled = true, -- if you want to enable the plugin
-      message_template = " <summary> • <date> • <author> • <<sha>>", -- template for the blame message, check the Message template section for more options
-      date_format = "%m-%d-%Y", -- template for the date, check Date format section for more options
-      virtual_text_column = 1, -- virtual text start column, check Start virtual text at column section for more options
+      enabled = true,
+      message_template = " <summary> • <date> • <author> • <<sha>>",
+      date_format = "%m-%d-%Y",
+      virtual_text_column = 1,
+      max_commit_summary_length = 50,
     },
     config = function(_, opts)
       require("gitblame").setup(opts)

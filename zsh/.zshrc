@@ -113,3 +113,4 @@ export MANPATH=/Users/evanguirino/.local/share/man:$MANPATH
 # Following line was automatically added by arttime installer
 export MANPATH=/Users/evanguirino/.local/share/man:$MANPATH
 export PATH="/opt/homebrew/opt/rustup/bin:$PATH"
+eval "$(pyenv init - zsh)"
