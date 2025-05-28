@@ -59,6 +59,9 @@ return {
       date_format = "%m-%d-%Y",
       virtual_text_column = 1,
       max_commit_summary_length = 50,
+      set_extmark_options = {
+        priority = 100,
+      },
     },
     config = function(_, opts)
       require("gitblame").setup(opts)

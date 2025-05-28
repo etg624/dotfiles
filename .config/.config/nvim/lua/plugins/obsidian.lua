@@ -26,7 +26,5 @@ return {
         path = "~/vaults/vault",
       },
     },
-
-    -- see below for full list of options 👇
   },
 }

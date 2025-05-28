@@ -5,6 +5,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="/opt/homebrew/bin:/bin:/usr/bin:$PATH"
 export PATH="$HOME/scripts:$PATH"
 export PATH="$PATH:$HOME/.local/bin"
+export STARSHIP_LOG_LEVEL="error"
 
 
 export VISUAL="nvim"

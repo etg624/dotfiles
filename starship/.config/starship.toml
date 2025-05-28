@@ -1,6 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 add_newline = true
 palette = "tailwind"
+
 format = """
 $directory\
 $git_branch\

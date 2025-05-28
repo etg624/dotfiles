@@ -28,8 +28,14 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.o.autoread = true
 vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
-  command = "if mode() != 'c' | checktime | endif",
-  pattern = { "*" },
+  pattern = "*",
+  callback = function()
+    if vim.fn.getcmdwintype() == "" then
+      pcall(function()
+        vim.cmd("checktime")
+      end)
+    end
+  end,
 })
 
 vim.api.nvim_create_autocmd("User", {

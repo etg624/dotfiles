@@ -3,7 +3,7 @@
 return {
   {
     "saghen/blink.cmp",
-    dependencies = { "giuxtaposition/blink-cmp-copilot" },
+    dependencies = {},
     opts = {
 
       completion = {
@@ -43,9 +43,16 @@ return {
           menu = { auto_show = true },
         },
       },
-
       sources = {
+        default = { "lsp", "path", "snippets", "buffer" },
         providers = {
+          copilot = {
+            name = "copilot",
+            module = "blink-cmp-copilot",
+            score_offset = 1000,
+            async = true,
+          },
+
           cmdline = {
             min_keyword_length = function(ctx)
               -- when typing a command, only show when the keyword is 3 characters or longer

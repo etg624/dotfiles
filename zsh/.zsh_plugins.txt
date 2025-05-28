@@ -13,3 +13,4 @@ zsh-users/zsh-history-substring-search      # Up/Down to search history
 aloxaf/fzf-tab 
 
 ohmyzsh/ohmyzsh path:plugins/poetry
+ohmyzsh/ohmyzsh path:plugins/git
