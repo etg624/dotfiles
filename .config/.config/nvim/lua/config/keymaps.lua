@@ -10,4 +10,3 @@ vim.keymap.set("v", "p", '"_dP')
 -- Delete text to " register
 vim.keymap.set("n", "<leader>d", '"_d', { desc = 'Delete into " register' })
 vim.keymap.set("v", "<leader>d", '"_d', { desc = 'Delete into " register' })
--- Jump to plugin management file

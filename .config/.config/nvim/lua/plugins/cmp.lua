@@ -24,7 +24,7 @@ return {
           ["<C-k>"] = { "select_prev", "fallback" },
           ["<Right>"] = { "select_and_accept", "fallback" },
           ["<C-e>"] = { "cancel" },
-          ["<CR>"] = { "accept_and_enter", "fallback" },
+          ["<C-y>"] = { "accept_and_enter", "fallback" },
         },
         sources = function()
           local type = vim.fn.getcmdtype()
@@ -46,13 +46,6 @@ return {
       sources = {
         default = { "lsp", "path", "snippets", "buffer" },
         providers = {
-          copilot = {
-            name = "copilot",
-            module = "blink-cmp-copilot",
-            score_offset = 1000,
-            async = true,
-          },
-
           cmdline = {
             min_keyword_length = function(ctx)
               -- when typing a command, only show when the keyword is 3 characters or longer
@@ -77,6 +70,7 @@ return {
         ["<C-d>"] = { "scroll_documentation_down", "fallback" },
         ["<Up>"] = { "select_prev", "fallback" },
         ["<Down>"] = { "select_next", "fallback" },
+        ["<Tab>"] = {},
       },
     },
   },
